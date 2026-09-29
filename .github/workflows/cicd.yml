@@ -23,10 +23,13 @@ jobs:
       - name: Build
         run: echo "Building..."
         
-      - name: Set version
+      - name: Get ResourceBase version
         id: version
-        run: echo "version=1.2.3" >> "$GITHUB_OUTPUT"
-        
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "ResourceBase version: $VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          
       - name: trigger
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy == true }}
         env:
