@@ -1,0 +1,21 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Deploy after build?"
+        required: true
+        type: boolean
+        default: false
+jobs:
+   build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show version
+        run: echo "Building version ${{ inputs.deploy }}"
