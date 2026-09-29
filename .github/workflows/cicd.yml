@@ -23,6 +23,9 @@ jobs:
       - name: Build
         run: echo "Building..."
         
+      - name: Checkout
+        uses: actions/checkout@v4
+        
       - name: Get ResourceBase version
         id: version
         run: |
