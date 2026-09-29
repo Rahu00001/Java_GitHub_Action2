@@ -26,11 +26,11 @@ jobs:
       - name: Deploy
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy == true }}
         run: echo "Deploying..."
-  deploy:
-      if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy == true }}
-      needs: build
-      runs-on: ubuntu-latest
+   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy == true }}
+    needs: build
+    runs-on: ubuntu-latest
   
-      steps:
-        - name: Deploy
-          run: echo "Deploying..."
+    steps:
+      - name: Deploy
+        run: echo "Deploying..."
