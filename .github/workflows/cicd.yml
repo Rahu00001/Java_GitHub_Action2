@@ -19,3 +19,10 @@ jobs:
     steps:
       - name: Show version
         run: echo "Deploy = ${{ inputs.deploy || false }}"
+        
+      - name: Build
+        run: echo "Building..."
+
+      - name: Deploy
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.deploy == true }}
+        run: echo "Deploying..."
