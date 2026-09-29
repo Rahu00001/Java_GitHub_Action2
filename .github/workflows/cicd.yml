@@ -18,4 +18,4 @@ jobs:
 
     steps:
       - name: Show version
-        run: echo "Building version ${{ inputs.deploy }}"
+        run: echo "Deploy = ${{ inputs.deploy || false }}"
